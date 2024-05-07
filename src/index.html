@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #ffffff;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .main-content {
+            margin-left: 20%;
+            padding: 20px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .conversation {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Personal Chatbot</h1>
+</header>
+
+<div class="sidebar">
+    <h2>Options</h2>
+    <button onclick="clearConversation()">Clear Conversation</button>
+</div>
+
+<div class="main-content">
+    <input type="text" id="userInput" placeholder="Input your question!">
+    <button onclick="sendMessage()">Send</button>
+
+    <div class="conversation" id="conversation">
+        <!-- Conversation messages will be displayed here -->
+    </div>
+</div>
+
+<script>
+    function clearConversation() {
+        document.getElementById("conversation").innerHTML = "";
+    }
+
+    function sendMessage() {
+        var userInput = document.getElementById("userInput").value;
+        var conversationDiv = document.getElementById("conversation");
+
+        // Append user message
+        conversationDiv.innerHTML += '<p style="margin: 0; padding-bottom: 5px;">User: ' + userInput + '</p>';
+
+        // Add loading spinner for bot typing
+        conversationDiv.innerHTML += '<p style="margin: 0; padding-top: 5px;">Bot is typing ...</p>';
+
+        // Simulate bot response (replace this with actual response logic)
+        setTimeout(function() {
+            var botResponse = 'Bot: Simulated response';
+            conversationDiv.innerHTML += '<p style="margin: 0; padding-top: 5px;">' + botResponse + '</p>';
+        }, 1000);  // Simulating delay for bot response
+    }
+</script>
+
+</body>
+</html>
